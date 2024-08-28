@@ -26,14 +26,16 @@ var subarraySum = function (nums, k) {
   let map = new Map();
   map.set(0, 1);
 
-  for(let item of nums) {
+  for (let item of nums) {
     sum += item;
-    if(map.has(sum - k)) {
+    if (map.has(sum - k)) {
       count += map.get(sum - k);
     }
 
     map.set(sum, (map.get(sum) || 0) + 1);
   }
+
+  return count;
 };
 
 console.log(subarraySum([1, 1, 3], 4)); // 2
